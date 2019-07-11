@@ -1,0 +1,64 @@
+<% include partials/_header %>
+
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-8">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-center">No</th>
+                        <th class="text-center">Company Name</th>
+                        <th class="text-center">Company Phone</th>
+                        <th class="text-center">Compnay Address</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data) { %>
+                            <% for (var i = 0; i < data.length; i++ ){%>
+                                <tr>
+                                    <td class="text-center"><%= (i + 1) %></td>
+                                    <td class="text-center"><%= data[i].company_name%></td>
+                                    <td class="text-center"><%= data[i].company_phone%></td>
+                                    <td class="text-center"><%= data[i].company_address%></td> 
+                                    <td class="text-center"> 
+                                        <a href="/delete/<%= data[i].company_id %>" class="btn btn-danger">Delete</a>
+                                        <a href="/update/<%= data[i].company_id %>"  class="btn btn-info mt-2">Update</a>
+                                    </td>        
+                                </tr>
+                            <% } %>
+                   <% } %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+
+           <div class="card">
+               <div class="card-body">
+
+                <form action="/add" method="post">
+                    <div class="form-group">
+                        <input type="text" name="company_name" placeholder="Company Name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="company_phone" placeholder="Company Phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="company_address" placeholder="Company Address" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Save Company
+                    </button>
+    
+                </form>
+
+               </div>
+           </div>
+
+        </div>
+    </div>
+</div>
+
+<% include partials/_footer %>
+
