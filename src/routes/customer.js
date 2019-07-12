@@ -12,4 +12,5 @@ router.get('/delete/:id', customerController.delete);
 
 router.get('/update/:id', customerController.edit);
 router.post('/update/:id', customerController.update);
+
 module.exports = router;

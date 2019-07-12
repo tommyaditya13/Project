@@ -8,6 +8,7 @@ const app = express();
 
 // importing routes
 const customerRouter =  require('./routes/customer');
+const customEmployee =  require('./routes/employee');
 
 // setLings
 app.set('port', process.env.PORT || 3000);
@@ -28,6 +29,8 @@ app.use(express.urlencoded({extended: false}));
 
 //routes
 app.use('/', customerRouter);
+
+app.use('/employee', customEmployee);
 
 //  static files
 app.use(express.static(path.join(__dirname, 'public')));

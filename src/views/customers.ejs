@@ -24,7 +24,7 @@
                                     <td class="text-center"><%= data[i].company_address%></td> 
                                     <td class="text-center"> 
                                         <a href="/delete/<%= data[i].company_id %>" class="btn btn-danger">Delete</a>
-                                        <a href="/update/<%= data[i].company_id %>"  class="btn btn-info mt-2">Update</a>
+                                        <a href="/update/<%= data[i].company_id %>"  class="btn btn-success mt-2">Update</a>
                                     </td>        
                                 </tr>
                             <% } %>
@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <input type="text" name="company_address" placeholder="Company Address" class="form-control" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary mt-2">
                         Save Company
                     </button>
     

@@ -1,9 +1,9 @@
 const controller = {};
 //===================================================
 controller.list = (req, res) => {
-    req.getConnection((err, conn ) => {
+    req.getConnection((err, conn) => {
         conn.query('SELECT * FROM ms_company', (err, customers) => {
-            if(err){
+            if (err) {
                 res.json(err);
             }
             res.render('customers', {
@@ -15,12 +15,12 @@ controller.list = (req, res) => {
 //==================================================
 controller.save = (req, res) => {
     const data = req.body;
-
-    req.getConnection((err, conn) => {
-        conn.query('INSERT INTO ms_company set ?', [data], (err, customer) => {
-            res.redirect('/');
-        });
-    });
+    console.log(req.body)
+    // req.getConnection((err, conn) => {
+    //     conn.query('INSERT INTO ms_company set ?', [data], (err, customer) => {
+    //         res.redirect('/');
+    //     });
+    // });
 };
 //==================================================
 controller.edit = (req, res) => {
@@ -45,11 +45,11 @@ controller.update = (req, res) => {
 };
 //==================================================
 controller.delete = (req, res) => {
-  req.getConnection((err, conn) => {
-      const { id } = req.params;
-    conn.query('DELETE FROM ms_company WHERE company_id = ?', [id], (err, rows) => {
-        res.redirect('/');
+    req.getConnection((err, conn) => {
+        const { id } = req.params;
+        conn.query('DELETE FROM ms_company WHERE company_id = ?', [id], (err, rows) => {
+            res.redirect('/');
+        });
     });
-  });
 };
 module.exports = controller;
